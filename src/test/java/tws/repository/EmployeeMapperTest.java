@@ -5,9 +5,11 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.jdbc.JdbcTestUtils;
+import org.springframework.web.bind.annotation.GetMapping;
 import tws.entity.Employee;
 
 import javax.sql.DataSource;
@@ -34,13 +36,9 @@ public class EmployeeMapperTest {
         JdbcTestUtils.deleteFromTables(jdbcTemplate, "employee");
     }
 
-    @Test
-    public void shouldFetchAllEmployees() {
-        // given
-        jdbcTemplate.execute("INSERT INTO EMPLOYEE VALUES(1,'zhangsan', 21);");
-        // when
-        List<Employee> employeeList = employeeMapper.selectAll();
-        // then
-        assertEquals(1, employeeList.size());
+    @GetMapping
+    public ResponseEntity<List<Employee>> queryEmpolyees(){
+        return ResponseEntity.ok(employeeMapper.selectAll());
     }
+
 }

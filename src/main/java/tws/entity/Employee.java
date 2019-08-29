@@ -3,41 +3,24 @@ package tws.entity;
 import java.io.Serializable;
 
 public class Employee implements Serializable {
-    private int id;
-    private String name;
-    private String age;
+    private String employeeID;
+
 
     public Employee() {
 
     }
+    public Employee(String id, String name, String age) {
+        this.employeeID = id;
 
-    public Employee(int id, String name, String age) {
-        this.id = id;
-        this.name = name;
-        this.age = age;
     }
 
-    public int getId() {
-        return id;
+    public String getEmployeeID() {
+        return employeeID;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setEmployeeID(String employeeID) {
+        this.employeeID = employeeID;
     }
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getAge() {
-        return age;
-    }
-
-    public void setAge(String age) {
-        this.age = age;
-    }
 }
