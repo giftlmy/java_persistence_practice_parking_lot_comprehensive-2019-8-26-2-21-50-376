@@ -9,5 +9,5 @@ import java.util.List;
 @Mapper
 public interface EmployeeMapper {
     List<Employee> selectAll();
-   void insert(@Param("employee") Employee employee);
+   void insertOne(@Param("employee") Employee employee);
 }

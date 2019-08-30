@@ -4,4 +4,8 @@
     <select id="queryAll" resultType="tws.entity.PackingLot">
         select * from `parkinglot`;
     </select>
+    <insert id="insertOne" >
+        insert into packinglot
+        values(#{packinglot.parkingLotID},#{packinglot.capacity},#{packinglot.availablePositionCount})
+    </insert>
 </mapper>
