@@ -9,6 +9,7 @@ import tws.repository.EmployeeMapper;
 import tws.repository.PackingLotMapper;
 import tws.service.PackinglotService;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 
@@ -26,9 +27,9 @@ public class PackingLotController {
     }
 
     @PostMapping
-    public ResponseEntity<PackingLot> insertOne(@RequestBody PackingLot packingLot) {
+    public ResponseEntity<PackingLot> insertOne(@Valid @RequestBody PackingLot packingLot) {
         packinglotService.insertOne(packingLot);
         return ResponseEntity.created(URI.create("/packinglots/" + packingLot.getParkinglotID())).body(packingLot);
     }
-    
+
 }

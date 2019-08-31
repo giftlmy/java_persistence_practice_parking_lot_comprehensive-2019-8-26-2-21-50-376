@@ -12,7 +12,7 @@ public class Employee implements Serializable {
 
     }
 
-    public Employee(@NotNull(message = "不能为空哦") String employeeID) {
+    public Employee( String employeeID) {
         this.employeeID = employeeID;
     }
 

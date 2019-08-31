@@ -1,6 +1,9 @@
 package tws.entity;
 
+import javax.validation.constraints.NotNull;
+
 public class PackingLot {
+    @NotNull(message = ("id不能为空哦"))
     private String parkinglotID;
     private Integer capacity;
     private Integer availablePositionCount;
@@ -43,5 +46,15 @@ public class PackingLot {
         this.capacity = capacity;
         this.availablePositionCount = availablePositionCount;
         this.employeeID = employeeID;
+    }
+
+    @Override
+    public String toString() {
+        return "PackingLot{" +
+                "parkinglotID='" + parkinglotID + '\'' +
+                ", capacity=" + capacity +
+                ", availablePositionCount=" + availablePositionCount +
+                ", employeeID='" + employeeID + '\'' +
+                '}';
     }
 }

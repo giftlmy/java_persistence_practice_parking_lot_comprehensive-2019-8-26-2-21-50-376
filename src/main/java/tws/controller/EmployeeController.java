@@ -7,8 +7,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import tws.DTO.EmployeePackinglot;
 import tws.entity.Employee;
 import tws.repository.EmployeeMapper;
+import tws.service.EmployeePackinglotService;
 import tws.service.EmployeeService;
 
 import javax.validation.Valid;
@@ -21,6 +23,8 @@ public class EmployeeController {
 
     @Autowired
     private EmployeeService employeeService;
+    @Autowired
+    private EmployeePackinglotService employeePackinglotService;
 
     @GetMapping
     public ResponseEntity<List<Employee>> getAll() {
@@ -32,5 +36,11 @@ public class EmployeeController {
     public ResponseEntity<Employee> insert(@Valid @RequestBody Employee employee) {
         employeeService.insertOne(employee);
         return ResponseEntity.created(URI.create("/employees/" + employee.getEmployeeID())).body(employee);
+    }
+    @GetMapping("/packinglot")
+    public ResponseEntity<List<EmployeePackinglot>> getAllPackinglotByEmployeeID() {
+
+        return ResponseEntity.ok(employeePackinglotService.getAll());
+
     }
 }

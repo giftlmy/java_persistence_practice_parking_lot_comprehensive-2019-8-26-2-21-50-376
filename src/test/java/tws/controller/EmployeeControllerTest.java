@@ -46,6 +46,14 @@ public class EmployeeControllerTest {
                 .andDo(MockMvcResultHandlers.print())
                 .andReturn();
     }
+    //getpackinglotEmployee
+    @Test
+    public void should_return_packinglotEmployee_list_when_query() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/employees/packinglot"))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andDo(MockMvcResultHandlers.print())
+                .andReturn();
+    }
 
 
 

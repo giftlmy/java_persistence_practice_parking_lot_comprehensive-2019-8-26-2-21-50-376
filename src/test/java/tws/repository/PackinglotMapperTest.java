@@ -26,6 +26,7 @@ public class PackinglotMapperTest {
 
     @Autowired
     public void setDataSource(DataSource dataSource) {
+
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
@@ -37,6 +38,7 @@ public class PackinglotMapperTest {
     @Test
     public void shouldFetchEmployee() {
         //given 已经有值不用传入参数了
+
         //when
         List<PackingLot> packingLots = packinglotMapper.queryAll();
         //then
