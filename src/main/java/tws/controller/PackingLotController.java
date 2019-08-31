@@ -7,6 +7,7 @@ import tws.entity.Employee;
 import tws.entity.PackingLot;
 import tws.repository.EmployeeMapper;
 import tws.repository.PackingLotMapper;
+import tws.service.PackinglotService;
 
 import java.net.URI;
 import java.util.List;
@@ -16,17 +17,18 @@ import java.util.List;
 public class PackingLotController {
 
     @Autowired
-    private PackingLotMapper packingLotMapper;
+    private PackinglotService packinglotService;
 
     @GetMapping
     public ResponseEntity<List<PackingLot>> getAll() {
 
-        return ResponseEntity.ok(packingLotMapper.queryAll());
+        return ResponseEntity.ok(packinglotService.getAll());
     }
 
     @PostMapping
     public ResponseEntity<PackingLot> insertOne(@RequestBody PackingLot packingLot) {
-        packingLotMapper.insertOne(packingLot);
-        return ResponseEntity.created(URI.create("/packinglots/" + packingLot.getParkingLotID())).body(packingLot);
+        packinglotService.insertOne(packingLot);
+        return ResponseEntity.created(URI.create("/packinglots/" + packingLot.getParkinglotID())).body(packingLot);
     }
+    
 }

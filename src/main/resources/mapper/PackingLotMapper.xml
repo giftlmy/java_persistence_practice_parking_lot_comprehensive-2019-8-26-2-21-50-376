@@ -2,10 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="tws.repository.PackingLotMapper">
     <select id="queryAll" resultType="tws.entity.PackingLot">
-        select * from `parkinglot`;
+        select * from parkinglot;
     </select>
     <insert id="insertOne" >
-        insert into packinglot
-        values(#{packinglot.parkingLotID},#{packinglot.capacity},#{packinglot.availablePositionCount})
+        insert into `parkingLot`
+        values (#{parkinglot.parkinglotID},#{parkinglot.capacity},#{parkinglot.availablePositionCount},#{parkinglot.employeeID});
     </insert>
 </mapper>

@@ -8,6 +8,6 @@ import java.util.List;
 @Mapper
 public interface PackingLotMapper {
     List<PackingLot> queryAll();
-    void insertOne(@Param("packinglot") PackingLot packingLot);
+    void insertOne(@Param("parkinglot") PackingLot packingLot);
 
 }

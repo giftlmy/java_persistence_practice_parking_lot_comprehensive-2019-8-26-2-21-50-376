@@ -5,6 +5,7 @@
         select * from `employee`;
     </select>
     <insert id="insertOne" >
-       insert into employee values(#{employee.employeeID});
+       insert into employee
+       values(#{employee.employeeID});
     </insert>
 </mapper>

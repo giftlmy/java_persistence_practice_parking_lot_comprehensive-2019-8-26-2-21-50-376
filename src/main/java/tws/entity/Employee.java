@@ -1,17 +1,19 @@
 package tws.entity;
 
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 public class Employee implements Serializable {
+    @NotNull(message = "不能为空哦")
     private String employeeID;
 
 
     public Employee() {
 
     }
-    public Employee(String id, String name, String age) {
-        this.employeeID = id;
 
+    public Employee(@NotNull(message = "不能为空哦") String employeeID) {
+        this.employeeID = employeeID;
     }
 
     public String getEmployeeID() {

@@ -23,8 +23,9 @@ public class EmployeeMapperTest {
 
     @Autowired
     private EmployeeMapper employeeMapper;
-
+    @Autowired
     JdbcTemplate jdbcTemplate;
+
 
     @Autowired
     public void setDataSource(DataSource dataSource) {
@@ -36,9 +37,21 @@ public class EmployeeMapperTest {
         JdbcTestUtils.deleteFromTables(jdbcTemplate, "employee");
     }
 
-    @GetMapping
-    public ResponseEntity<List<Employee>> queryEmpolyees(){
-        return ResponseEntity.ok(employeeMapper.selectAll());
+    @Test
+    public void shouldFetchEmployee() {
+        //given 已经有值不用传入参数了
+        //when
+        List<Employee> employees = employeeMapper.selectAll();
+        //then
+        assertEquals(1, employees.size());
     }
+
+//    @Test
+//    public void shouldInsertEmployee(){
+//        //given
+//        jdbcTemplate.query();
+//        //when
+//        employeeMapper.insertOne();
+//    }
 
 }
